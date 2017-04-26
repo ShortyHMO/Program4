@@ -44,7 +44,7 @@ public void teardown()
 public void simpleMove()
 {
    Point p;
-   System.out.println("Running test simpleMove.");
+   //System.out.println("Running test simpleMove.");
    p = circle1.moveBy(1,1);
    Assert.assertTrue(p.x == 2 && p.y == 3);
 }
@@ -56,11 +56,59 @@ public void simpleMove()
 public void simpleMoveNeg()
 {
    Point p;
-   System.out.println("Running test simpleMoveNeg.");
+   //System.out.println("Running test simpleMoveNeg.");
    p = circle1.moveBy(-1,-1);
    Assert.assertTrue(p.x == 0 && p.y == 1);
 }
+@Test
+public void crossing()
+{
+   //System.out.println("circles crossing each other");
+   boolean i;
+   Circle1 circleH = new Circle1(6,2,3);
+   i = circle1.intersects(circleH);
+   Assert.assertTrue(i==true);
+}
+@Test
+public void apart()
+{
+   boolean i;
+   //System.out.println("circles away from each other");
+   Circle1 circle = new Circle1(9,2,4);
+   i = circle1.intersects(circle);
+   Assert.assertTrue(i==false);
+}
+@Test
+public void close()
+{
+   //System.out.println("circles close and barely touching from each other");
+   boolean i;
+   Circle1 circle2 = new Circle1(7,2,3);
+   i = circle1.intersects(circle2);
+   Assert.assertTrue(i==true);
+}
+@Test
+public void decrease()
+{
+	
+   double r;
+   //System.out.println("decrease.");
+   r = circle1.scale(.5);
+   Assert.assertTrue(r == 1.5);
+}
 
+@Test
+public void MinR()
+{
+
+  try {
+    Circle1 circle2 = new Circle1(1,2,-1); 
+  } catch (Exception e) {
+    Assert.assertTrue(1==1); 
+  }
+}
+
+}
 /*** NOT USED
 public static void main(String args[])
 {
@@ -72,6 +120,4 @@ public static void main(String args[])
    }
 }
 ***/
-
-}
 

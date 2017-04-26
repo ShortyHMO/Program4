@@ -19,6 +19,10 @@ public Circle(double x, double y, double radius)
    center = new Point();
    center.x = x;
    center.y = y;
+   // added an error to be thrown for a value less than 0
+   if(radius <= 0){
+	throw new java.lang.Error("ERROR: Radius must be greater than 0");
+   }
    this.radius = radius;
 }
 
@@ -30,7 +34,7 @@ public Circle(double x, double y, double radius)
 **/
 public double scale(double factor)
 {
-   radius = radius + factor;
+   radius = radius * factor;// needs to be multiplication
    return radius;
 }
 

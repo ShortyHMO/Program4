@@ -1,0 +1,20 @@
+Changes from Build.xml 
+date 4/25/17
+=====================================
+
+Changed code :
+Circle.java:
+  - Fixes:
+      circle constructor -exception thrown if less than or equal to 0.
+      scale function - changed to have a multiplication
+Circle1.java:
+  - Fixes:
+  changed function intersects
+        Should be radius+other.radius to truly calculate the distance between the centers. Caught by Intersecting test.
+		Should be <= because of circles that are exactly intersecting . Caught by BarelyIntersecting test.
+Circle2.java:
+  changed constructor of class
+      Line 8 - x and y were in the wrong order
+  changed intersects function
+      Line 16 - needs to b radius+ other radius to calculate both circles.
+      Line 16 - changed to be less than or equal to because if they are touching they are intersecting
